@@ -6,9 +6,13 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 class MarsProperty(
-    val id: String,
+    val id: Long,
     @Json(name = "img_src") val imgSrcUrl: String,
     val type: String,
     val price: Double
 ) : Parcelable {
+    override fun equals(other: Any?): Boolean {
+        other as MarsProperty
+        return price == other?.price && imgSrcUrl == other.imgSrcUrl && type == other.type
+    }
 }

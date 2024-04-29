@@ -28,17 +28,17 @@ class OverviewViewModel : ViewModel() {
     }
 
     private fun getMarsRealEstateProperties(filter: MarsApiFilter) {
-        Timber.d("starting Running on thread: ${Thread.currentThread().name}")
+        Timber.i("starting Running on thread: ${Thread.currentThread().name}")
         _lodaingStatus.value = MarsApiStatus.LOADING
-        Timber.d("MarsApiStatus.LOADING Running on thread: ${Thread.currentThread().name}")
+        Timber.i("MarsApiStatus.LOADING Running on thread: ${Thread.currentThread().name}")
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 val result = MarsApi.retrofitService.getProperties(filter.value)
-                Timber.d("retrofitService Running on thread: ${Thread.currentThread().name}")
+                Timber.i("retrofitService Running on thread: ${Thread.currentThread().name}")
                 withContext(Dispatchers.Main) {
                     _properties.value = result
                     _lodaingStatus.value = MarsApiStatus.DONE
-                    Timber.d("MarsApiStatus.DONE Running on thread: ${Thread.currentThread().name}")
+                    Timber.i("MarsApiStatus.DONE Running on thread: ${Thread.currentThread().name}")
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
@@ -47,14 +47,18 @@ class OverviewViewModel : ViewModel() {
                     _properties.value = ArrayList()
                 }
             }
-            Timber.d("inside after all Running on thread: ${Thread.currentThread().name}")
+            Timber.i("inside after all Running on thread: ${Thread.currentThread().name}")
         }
-        Timber.d("outside after all Running on thread: ${Thread.currentThread().name}")
+        Timber.i("outside after all Running on thread: ${Thread.currentThread().name}")
 
     }
 
     override fun onCleared() {
         Timber.i("onCleared")
         super.onCleared()
+    }
+
+    fun clickDetail(night: Long) {
+
     }
 }
