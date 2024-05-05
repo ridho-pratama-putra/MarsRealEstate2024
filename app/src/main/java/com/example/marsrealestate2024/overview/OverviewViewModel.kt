@@ -9,6 +9,7 @@ import com.example.marsrealestate2024.network.MarsApiFilter
 import com.example.marsrealestate2024.network.MarsApiStatus
 import com.example.marsrealestate2024.network.MarsProperty
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import timber.log.Timber
@@ -56,9 +57,10 @@ class OverviewViewModel : ViewModel() {
     override fun onCleared() {
         Timber.i("onCleared")
         super.onCleared()
+        viewModelScope.cancel()
     }
 
     fun clickDetail(night: Long) {
-
+        Timber.i("who never get fooled again")
     }
 }

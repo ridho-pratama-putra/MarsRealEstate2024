@@ -27,6 +27,15 @@
             tools:listitem="@layout/grid_view_item"
             app:listData="@{viewModel.properties}"
             />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:loadingStatus="@{viewModel.loadingStatus}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

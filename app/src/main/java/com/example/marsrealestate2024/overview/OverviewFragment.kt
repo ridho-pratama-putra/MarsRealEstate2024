@@ -6,10 +6,7 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.marsrealestate2024.R
 import com.example.marsrealestate2024.databinding.FragmentOverviewBinding
@@ -27,7 +24,7 @@ class OverviewFragment: Fragment() {
         val overviewViewModel = ViewModelProvider(this, viewModelFactory).get(OverviewViewModel::class.java)
         binding.viewModel = overviewViewModel
 
-        val adapter = MarsAdapter(ItemClickListener { itemId -> Toast.makeText(context, "kipa", Toast.LENGTH_LONG).show() })
+        val adapter = MarsAdapter(ItemClickListener { itemId -> overviewViewModel.clickDetail(1L) })
         binding.photosGridRecyclerView.adapter = adapter
 
         return binding.root
