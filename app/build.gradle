@@ -5,6 +5,8 @@ plugins {
 
 apply plugin: 'kotlin-parcelize'
 apply plugin: 'kotlin-kapt' // enabling kotlin support for data binding adapter
+apply plugin: 'androidx.navigation.safeargs'
+apply plugin: 'kotlin-android'
 
 android {
     namespace 'com.example.marsrealestate2024'
@@ -52,6 +54,10 @@ dependencies {
     implementation libs.androidx.navigation.fragment.ktx
     implementation libs.androidx.navigation.ui.ktx
     implementation 'com.jakewharton.timber:timber:4.7.1'
+    implementation libs.androidx.legacy.support.v4
+    implementation libs.androidx.lifecycle.livedata.ktx
+    implementation libs.androidx.lifecycle.viewmodel.ktx
+    implementation libs.androidx.fragment.ktx
 
     def version_moshi = "1.15.1"
     def version_retrofit = "2.11.0"

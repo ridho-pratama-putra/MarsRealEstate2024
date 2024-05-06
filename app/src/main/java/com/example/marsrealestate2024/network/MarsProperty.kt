@@ -11,6 +11,9 @@ class MarsProperty(
     val type: String,
     val price: Double
 ) : Parcelable {
+
+    val isRental: Boolean
+        get() = type === "rental"
     override fun equals(other: Any?): Boolean {
         other as MarsProperty
         return price == other?.price && imgSrcUrl == other.imgSrcUrl && type == other.type

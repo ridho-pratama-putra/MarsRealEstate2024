@@ -16,7 +16,7 @@
         android:layout_height="170dp"
         android:scaleType="centerCrop"
         android:adjustViewBounds="true"
-        android:onClick="@{() -> clickListener.onClickItem(0L)}"
+        android:onClick="@{() -> clickListener.onClickItem(marsProperty)}"
         android:padding="2dp"
         tools:src="@tools:sample/backgrounds/scenic"
         app:imageUrl="@{marsProperty.imgSrcUrl}"/>
